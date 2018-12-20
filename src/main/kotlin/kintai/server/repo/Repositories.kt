@@ -2,6 +2,7 @@ package kintai.server.repo
 
 import io.micronaut.context.annotation.Bean
 import io.micronaut.context.annotation.Factory
+import io.micronaut.core.annotation.Blocking
 import org.jetbrains.exposed.sql.Database
 import org.jetbrains.exposed.sql.insert
 import org.jetbrains.exposed.sql.insertAndGetId
@@ -22,7 +23,9 @@ class DBSettingsFactory {
 }
 
 @Singleton
+@Blocking
 class CityRepository(db:Database) {
+
 
     fun allCity():List<City> = transaction {
 
